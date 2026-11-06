@@ -1,0 +1,45 @@
+{
+  "name": "fastreader",
+  "version": "0.1.0",
+  "description": "A full-screen Spritz-style RSVP desktop reader.",
+  "main": "dist/main/main.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "npm run build && node scripts/start-electron.mjs",
+    "build": "tsc -p tsconfig.json --noEmit && node scripts/build.mjs",
+    "package": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "test": "node --test scripts/test.mjs"
+  },
+  "keywords": [
+    "rsvp",
+    "speed-reading",
+    "electron"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "esbuild": "^0.25.5",
+    "electron": "^36.3.1",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.8.3"
+  },
+  "build": {
+    "appId": "com.fastreader.app",
+    "productName": "FastReader",
+    "files": [
+      "dist/**/*",
+      "src/renderer/index.html",
+      "src/renderer/styles.css",
+      "sample.txt",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "directories": {
+      "output": "release"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastReader</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-label="Reader controls">
+        <div class="brand">FastReader</div>
+        <div class="control-row">
+          <button id="openButton" class="ghost-button" type="button">Open</button>
+          <button id="speechButton" class="ghost-button" type="button" aria-pressed="false">Speech Off</button>
+          <select id="voiceSelect" class="voice-select" aria-label="Voice"></select>
+          <label class="wpm-control">
+            <span>WPM</span>
+            <input id="wpmInput" type="number" min="100" max="1000" step="25" value="300" />
+          </label>
+          <label class="zoom-control">
+            <span>Text</span>
+            <button id="zoomOutButton" class="mini-button" type="button" aria-label="Smaller text">-</button>
+            <input id="zoomInput" type="range" min="70" max="150" step="5" value="100" aria-label="Reader text size" />
+            <button id="zoomInButton" class="mini-button" type="button" aria-label="Larger text">+</button>
+          </label>
+        </div>
+      </section>
+
+      <section class="reader-stage" aria-live="polite">
+        <div class="redicle" aria-hidden="true">
+          <div class="guide guide-top"></div>
+          <div class="guide guide-bottom"></div>
+          <div class="marker marker-top"></div>
+          <div class="marker marker-bottom"></div>
+        </div>
+        <div id="word" class="word">
+          <span id="prefix"></span><span id="orp" class="orp"></span><span id="suffix"></span>
+        </div>
+      </section>
+
+      <section id="setupPanel" class="setup-panel">
+        <textarea id="textInput" placeholder="Paste text here, or open a .txt file."></textarea>
+      </section>
+
+      <section class="bottom-panel">
+        <label class="progress-control">
+          <input id="progressInput" type="range" min="0" max="0" step="1" value="0" aria-label="Reading progress" />
+        </label>
+        <button id="playButton" class="primary-button" type="button">Let's Go!</button>
+        <div id="status" class="status">No text loaded</div>
+      </section>
+    </main>
+
+    <script src="../../dist/renderer/app.js"></script>
+  </body>
+</html>

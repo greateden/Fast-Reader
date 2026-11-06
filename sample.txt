@@ -1,0 +1,1 @@
+Reading with FastReader is intentionally focused. Open this sample, press Space, and watch the red letter stay locked to the center marker as each word advances. Short pauses appear after commas, semicolons, colons, and sentence-ending punctuation. You can raise or lower the speed with the arrow keys, pause at any moment, and step backward or forward while paused.
